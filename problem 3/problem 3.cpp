@@ -34,6 +34,8 @@ int sum_of_the_columns_in_each_row(int arr[3][3], short rows_from_function, shor
     return sum;
 }
 
+
+
 //fill 1d array with number 
 void fill_array_With_the_number(int arrres[3], short number , short &length ) {
 
