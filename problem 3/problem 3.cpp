@@ -34,11 +34,11 @@ int sum_of_the_columns_in_each_row(int arr[3][3], short rows_from_function, shor
     return sum;
 }
 
-//fill 1d array with sum 
-void fill_array_With_the_number(int arr[3], short number , short &length ) {
+//fill 1d array with number 
+void fill_array_With_the_number(int arrres[3], short number , short &length ) {
 
     length++;
-    arr[length - 1] = number;
+    arrres[length - 1] = number;
 }
 
 void fill_array_With_the_sum_of_each_row(int arr[3][3],int arrres[3], short rows, short columns , short &length) {
