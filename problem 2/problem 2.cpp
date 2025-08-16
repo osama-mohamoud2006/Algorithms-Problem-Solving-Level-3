@@ -30,20 +30,28 @@ void array_print(int arr[3][3], short rows, short columns) {
 
 // sum of each row[0][c]
 int sum_of_the_columns_in_each_row(int arr[3][3], short rows_from_function, short columns) {
-    
+
+    /*                           c=0  c=1   c=2  
+    * R=0  sum of these elemetns   4   5    7  --> 4+5+7
+    * R=1  sum of these elemetns   6   7    4--> 6+7+4
+    */
+
+    //this function takes row number from another function and returns the sum of elements in this row 
     int sum = 0;
-    for (int c = 0; c < columns; c++) {
+    for (int c = 0; c < columns; c++) 
         sum += arr[rows_from_function][c];
-    }
+    
     return sum; 
 }
 
-void print_sum_of_each_row(int arr[3][3], short rows, short columns) {
-    cout << "\nthe follwing are the sum of each Row in the matrix :\n";
 
-    for (short r = 0; r < rows; r++) {
+void print_sum_of_each_row(int arr[3][3], short rows, short columns) {
+
+    //this function pass the row index to another function to get the sum of the elements in each row 
+    cout << "\nthe follwing are the sum of each Row in the matrix :\n";
+    for (short r = 0; r < rows; r++) 
         cout << " Row " << r + 1 << " sum = " << sum_of_the_columns_in_each_row(arr, r, columns) << endl;
-    }
+    
 }
 
 int main() {
