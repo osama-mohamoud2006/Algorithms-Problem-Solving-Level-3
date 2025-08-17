@@ -39,23 +39,23 @@ void print_matrix(int arrPrintp[3][3],short row , short col){
 }
 
 int main(){
-
+srand((unsigned)time(NULL));
     int arr[3][3];
     int arr2[3][3];
     int arrres[3][3];
 
     //fill array 1
      fill_array_with_raondom_number( arr, 3 , 3);
-     cout<<"\nmatrix 1\n";
+     cout<<"\nmatrix 1:\n";
       print_matrix(arr, 3 , 3);
           
       //fill array 2
-       cout<<"\nmatrix 2\n";
+       cout<<"\nmatrix 2:\n";
        fill_array_with_raondom_number( arr2, 3 , 3);
         print_matrix(arr2, 3 , 3);
 
         // arr1 * arr2
-         cout<<"\n\nmatrix res\n";
+         cout<<"\n\nmatrix res:\n";
         multi_2_matrices( arr,  arr2, arrres,3 , 3);
             print_matrix(arrres, 3 , 3);
 cout<<endl;
