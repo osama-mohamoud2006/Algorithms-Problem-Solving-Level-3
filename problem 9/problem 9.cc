@@ -19,18 +19,20 @@ int random(int from , int to){return rand()%(to-from+1)+from;}
   void print_middle_row(int arr[3][3], short col , short row)
  {
     //r =1 --> middle
+    short MiddleRow = row/2;
             for(int c=0; c<col; c++){
         
-                 printf("%d ", arr[1][c]);
+                 printf("%02d ", arr[MiddleRow][c]);
             }
  }
 
 void print_middle_col(int arr[3][3], short col , short row)
  {
     //c =1 --> middle
+    short MiddleCol = col/2;
             for(int r=0; r<row; r++){
         
-              printf("%d ", arr[r][1]);
+              printf("%02d ", arr[r][MiddleCol]);
             }
  }
 
