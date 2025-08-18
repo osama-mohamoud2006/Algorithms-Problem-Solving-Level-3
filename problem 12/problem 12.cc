@@ -44,6 +44,7 @@ bool is_typically_equal(short arr[3][3], short arr2[3][3], short row, short col)
 }
 
 int main(){
+    srand((unsigned)time(NULL));
     short matrix1[3][3];
     short matrix2[3][3];
     
