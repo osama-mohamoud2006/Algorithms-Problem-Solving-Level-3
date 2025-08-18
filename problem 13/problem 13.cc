@@ -14,9 +14,8 @@ void print(int arr[3][3], int row, int col)
     }
 }
 
-bool is_identity(int arr[3][3], int row, int col)
+bool is_scalar(int arr[3][3], int row, int col)
 {
-   
 
     for (int i = 0; i < row; i++)
     {
@@ -44,17 +43,29 @@ bool is_identity(int arr[3][3], int row, int col)
 int main()
 {
     int arr1[3][3];
-    arr1[0][0] = 1;  arr1[0][1] = 0;  arr1[0][2] = 0;
-    arr1[1][0] = 0;  arr1[1][1] = 1;  arr1[1][2] = 0;
-    arr1[2][0] = 0;  arr1[2][1] = 0;  arr1[2][2] = 1;
+    arr1[0][0] = 1;
+    arr1[0][1] = 0;
+    arr1[0][2] = 0;
+    arr1[1][0] = 0;
+    arr1[1][1] = 1;
+    arr1[1][2] = 0;
+    arr1[2][0] = 0;
+    arr1[2][1] = 0;
+    arr1[2][2] = 1;
 
     int arr2[3][3];
-    arr2[0][0]=1; arr2[0][1]=0; arr2[0][1]=1;
-    arr2[1][0]=0; arr2[1][1]=1; arr2[1][1]=0;
-    arr2[2][0]=1; arr2[2][1]=0; arr2[2][2]=0;
+    arr2[0][0] = 1;
+    arr2[0][1] = 0;
+    arr2[0][1] = 1;
+    arr2[1][0] = 0;
+    arr2[1][1] = 1;
+    arr2[1][1] = 0;
+    arr2[2][0] = 1;
+    arr2[2][1] = 0;
+    arr2[2][2] = 0;
 
     cout << "\n  Matrix\n";
     print(arr1, 3, 3);
 
-    (is_identity(arr1, 3, 3) == true) ? cout << "\nYes,matrix is identity!\n" : cout << "\nNO,the matrix isn't identity!\n";
+    (is_scalar(arr1, 3, 3) == true) ? cout << "\nYes,matrix is identity!\n" : cout << "\nNO,the matrix isn't identity!\n";
 }
