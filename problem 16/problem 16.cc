@@ -32,7 +32,7 @@ short the_repetation_of_number(short arr[3][3] , short the_number_to_search,shor
 
 bool is_sparse_matrix(short arr[3][3] , short row , short col){
    short b = row*col;
-    return (the_repetation_of_number(arr,0,3,3)>ceil(b/2));
+    return (the_repetation_of_number(arr,0,3,3)>ceil((float)b/2));
 
 }
        
