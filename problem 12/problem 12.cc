@@ -32,7 +32,7 @@ void print(short arr[3][3], short row, short col)
     }
 }
 
-bool is_typically_equal(short arr[3][3], short arr2[3][3], short row, short col)
+bool are_typical_matrices(short arr[3][3], short arr2[3][3], short row, short col)
 {
     for (short i = 0; i < row; i++)
     {
@@ -41,6 +41,8 @@ bool is_typically_equal(short arr[3][3], short arr2[3][3], short row, short col)
             if(arr[i][j]!=arr2[i][j]) return false;
         }
     }
+
+    return true;
 }
 
 int main(){
@@ -58,8 +60,8 @@ int main(){
        cout<<"\nMatrix2\n";
        print( matrix2, 3, 3);
 
-(is_typically_equal(matrix1,matrix2,3,3)==true)?cout<<"\nYes,matrices are equal!\n" :
-cout<<"\nNO,matrices are n't equal!\n";
+(are_typical_matrices(matrix1,matrix2,3,3)==true)?cout<<"\nYes,matrices are typical!\n" :
+cout<<"\nNO,matrices are n't typical!\n";
 
 
 }
