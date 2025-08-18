@@ -7,9 +7,10 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-string res(int i){
-  string res_arr[]={"NOT",""};
-  return res_arr[i];
+string res(int i)
+{
+    string res_arr[] = {"NOT", ""};
+    return res_arr[i];
 }
 int random(int from, int to)
 {
@@ -37,26 +38,32 @@ int sum_of_elements_in_matrix(int arr[3][3], int row, int col)
             sum += arr[r][c];
         }
     }
-    return sum ;
+    return sum;
 }
 
-bool check_if_the_2_matrices_are_equal(int arr1sum, int arr2sum)
+// bool check_if_the_2_matrices_are_equal(int arr1sum, int arr2sum)
+// {
+//     bool res = false;
+//     (arr1sum == arr2sum) ? res = true : res = false;
+//     return res;
+// }
+bool check_if_the_2_matrices_are_equal(int arr[3][3], int arr2[3][3], int row, int col)
 {
-    bool res = false;
-    (arr1sum == arr2sum) ? res = true : res = false;
-    return res;
+
+    return (sum_of_elements_in_matrix(arr, row, col) ==
+            sum_of_elements_in_matrix(arr2, row, col));
 }
 
 void print_matrix(int arr[3][3], int row, int col)
 {
-    
+
     for (int r = 0; r < row; r++)
     {
         for (int c = 0; c < col; c++)
         {
             printf("%02d ", arr[r][c]);
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 
@@ -66,22 +73,20 @@ int main()
     int arr[3][3];
     int arr2[3][3];
 
-    //array 1
-     fill_array_with_random_number( arr, 3, 3);
-     cout<<"\nmatrix 1:\n";
-      print_matrix( arr, 3, 3);
+    // array 1
+    fill_array_with_random_number(arr, 3, 3);
+    cout << "\nmatrix 1:\n";
+    print_matrix(arr, 3, 3);
 
-      //array 2
-       fill_array_with_random_number( arr2, 3, 3);
-       cout<<"\nmatrix 2:\n";
-       print_matrix( arr2, 3, 3);
+    // array 2
+    fill_array_with_random_number(arr2, 3, 3);
+    cout << "\nmatrix 2:\n";
+    print_matrix(arr2, 3, 3);
 
-       (check_if_the_2_matrices_are_equal(  sum_of_elements_in_matrix( arr, 3, 3),
-        sum_of_elements_in_matrix( arr2, 3, 3))) ? cout<<"\nYes:":cout<<"\nNo:";
+    (check_if_the_2_matrices_are_equal(arr, arr2, 3, 3)) ? cout << "\nYes,the both matrices are equal!" : cout << "\nNo,the both matrices aren't equal ";
 
-  cout<<"Matrices are "<<res(check_if_the_2_matrices_are_equal(sum_of_elements_in_matrix( arr, 3, 3),           sum_of_elements_in_matrix( arr2, 3, 3)))<<" equal."; 
+    //    (check_if_the_2_matrices_are_equal(  sum_of_elements_in_matrix( arr, 3, 3),
+    //     sum_of_elements_in_matrix( arr2, 3, 3))) ? cout<<"\nYes:":cout<<"\nNo:";
 
-
-
-
+    //   cout<<"Matrices are "<<res(check_if_the_2_matrices_are_equal(sum_of_elements_in_matrix( arr, 3, 3),           sum_of_elements_in_matrix( arr2, 3, 3)))<<" equal.";
 }
