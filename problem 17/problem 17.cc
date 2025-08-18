@@ -17,6 +17,7 @@ void fill_array_with_random_number(short arr[3][3], short row, short col)
     }
 }
 
+/// fast method 
 bool is_number_exist(short arr[3][3], short number, short row, short col)
 {
 
