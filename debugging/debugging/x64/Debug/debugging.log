@@ -1,0 +1,5 @@
+﻿  debugging.cpp
+E:\projects\my library\logic_stuff.h(98,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'debugging.cpp')
+  
+  debugging.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\x64\Debug\debugging.exe
