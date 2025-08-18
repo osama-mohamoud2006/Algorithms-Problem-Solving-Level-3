@@ -65,6 +65,8 @@ int main()
 
 
     cout<<"\nthe max value is: "<<max(arr,3,3)<<endl;
-     cout<<"\nthe min value is: "<<min(arr,3,3)<<endl;
+     cout<<"the min value is: "<<min(arr,3,3)<<endl;
+     cout<<endl;
+     return 0;
    
 }
