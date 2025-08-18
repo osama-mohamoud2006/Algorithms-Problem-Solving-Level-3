@@ -16,8 +16,7 @@ void print(int arr[3][3], int row, int col)
 
 bool is_identity(int arr[3][3], int row, int col)
 {
-    if (row != col)
-        return false;
+   
 
     for (int i = 0; i < row; i++)
     {
