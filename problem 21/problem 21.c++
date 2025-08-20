@@ -9,7 +9,7 @@ void fibo(short n)
   {
     short res = prev1 + prev2;
     cout << res << " ";
-    prev2 = prev1 + prev2;
+    prev2 = res;
     prev1 = prev2 - prev1;
   }
 }
