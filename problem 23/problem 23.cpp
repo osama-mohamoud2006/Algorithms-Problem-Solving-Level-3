@@ -10,10 +10,10 @@ void first_letter(string full)
     cout<<full.front()<<endl;
     for (int i = 0; i < full.size(); i++)
     {
-          if(full[i]!=' '&& isfirst==true){
+          if(full[i]!=' '&& isfirst==true){// if you found word and the pervious index was space
               cout<<full[i]<<endl;
           }
-        (full[i]==' ')? isfirst=true:isfirst=false;
+        (full[i]==' ')? isfirst=true:isfirst=false; // space means new word 
     }
 }
 
