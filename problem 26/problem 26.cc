@@ -5,7 +5,7 @@
 using namespace std;
 using namespace AllStuff;
 
-string Upper(string word)
+string Upper1(string word)
 {
     for (int i = 0; i < word.size(); i++)
     {
@@ -14,7 +14,7 @@ string Upper(string word)
     return word;
 }
 
-string lower(string word)
+string lower1(string word)
 {
     for (int i = 0; i < word.size(); i++)
     {
@@ -25,6 +25,7 @@ string lower(string word)
 
 int main(){
     string word = read_full_line("enter: ");
-    cout<<Upper(word)<<endl;
-    cout<<lower(word)<<endl;
+    cout<<Upper1(word)<<endl;
+    cout<<lower1(word)<<endl;
+    
 }
