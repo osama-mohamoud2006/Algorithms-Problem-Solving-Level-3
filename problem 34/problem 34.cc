@@ -12,20 +12,20 @@ bool isvowel(char c)
     return (c == 'a' || c == 'e' || c == 'o' || c == 'u' || c == 'i');
 }
 
-int print_vowels_in_string(string word)
+void print_vowels_in_string(string word)
 {
-    int count = 0;
+
     for (int i = 0; i < word.size(); i++)
-    {
-        if (isvowel(word.at(i)) == true)
-            count++;
-    }
-    return count;
+
+        if (isvowel(word.at(i)))
+            cout << word.at(i) << " ";
 }
 
 int main()
 {
 
     string word = read_full_line("Enter: ");
-    cout << "number of vowels is: " << print_vowels_in_string(word) << endl;
+    cout << "number of vowels is: ";
+    print_vowels_in_string(word);
+    cout << endl;
 }
