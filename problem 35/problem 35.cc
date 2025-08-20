@@ -23,7 +23,6 @@ void each_word_in_single_line(string word)
     if(eword!="") cout<<eword;
 }
 
-
 int main()
 {
     string word = read_full_line("Enter: ");
