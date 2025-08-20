@@ -3,16 +3,15 @@
 #include <string>
 using namespace std;
 
-
-char invert(char c){
-    if( islower(c)) return  c=toupper(c);
-    if(isupper(c)) return c=tolower(c);
-   
+char invert(char c)
+{
+    return islower(c) ? c = toupper(c) : c = tolower(c);
 }
 
-int main(){
+int main()
+{
     char str = ' ';
-    cout<<"enter char: ";
-    cin>>str;
-    cout<<invert(str)<<endl;
+    cout << "enter char: ";
+    cin >> str;
+    cout << invert(str) << endl;
 }
