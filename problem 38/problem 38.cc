@@ -7,33 +7,31 @@
 using namespace std;
 using namespace AllStuff;
 
-string trim_left(string str)
+string left_trim(string s)
 {
-
-    bool isfirst = false;
-    for (int i = 0; i < str.size(); i++)
+    for (int i = 0; i < s.size(); i++)
     {
-
-        if (isfirst == true)
-        {
-            return str.substr(i - 1, str.size() - 1);
-        }
-
-        isfirst = (str[i] == ' ') ? false : true;
+        // it fasced the first letter of word
+        if (s.at(i) != ' ')
+            return s.substr(i, s.size() - 1);
+        // eplantion : the loop will loop untill find the first char if it happened return the string substred from the index of first char untill the end of string
     }
+    return " ";
 }
 
-string right_trim(string str)
+string right_trim(string s)
 {
-    for(int i =0 ; i<str.length(); i++){
-        if( !(str.at(i)=='a')&& (str.at(i+1)=' ')){
-            return str ;
-        }
+    for (int i = s.size() - 1; i >= 0; i--)
+    {
+        if(s.at(i)!=' ') return s.substr(0,i+1 );
+        //Explantion the loop will loop the chars of string starting from the last of string and will continue untill the first char if it found will substr the string from the fisrt char to the i
     }
+      return " ";
 }
 
 int main()
 {
-    cout << trim_left(read_full_line("Enter: ")) << endl;
-     cout << right_trim(read_full_line("Enter: ")) << endl;
+    string w = read_full_line("Enter: ");
+   // cout << left_trim(w) << endl;
+    cout <<right_trim(w) << endl;
 }
