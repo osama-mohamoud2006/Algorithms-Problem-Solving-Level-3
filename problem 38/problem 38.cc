@@ -29,9 +29,14 @@ string right_trim(string s)
       return " ";
 }
 
+string full_trim(string s){
+     return right_trim(left_trim(s));
+}
+
 int main()
 {
     string w = read_full_line("Enter: ");
-   // cout << left_trim(w) << endl;
-    cout <<right_trim(w) << endl;
+    cout <<"the left trim: "<< left_trim(w) << endl;
+    cout <<"the right trim: "<<right_trim(w) << endl;
+    cout<<"the string full trim: "<<full_trim(w)<<endl;
 }
