@@ -42,7 +42,7 @@ void another_method_to_print(string s)
         s.erase(0, pos + delim.size()); // erase from the first of string untill the first word + delim
     }
 
-    // the last word hasnot delim after it so the while will exit
+    // the last word doesn't have delim after it so the while will exit
     if (s != " ")
         cout << s << endl;
 }
