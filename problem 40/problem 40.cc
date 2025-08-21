@@ -38,6 +38,7 @@ string join_string(string arr[], short length, string delim = " ")
     return res.substr(0, res.length() - delim.size());
 }
 
+
 int main()
 {
     vector<string> vdata = {"osama", "mohamoud", "elsherif"};

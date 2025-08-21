@@ -4,6 +4,7 @@
         "cmath": "cpp",
         "xstring": "cpp",
         "vector": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "xlocale": "cpp"
     }
 }
