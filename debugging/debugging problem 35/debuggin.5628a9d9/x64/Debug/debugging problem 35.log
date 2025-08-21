@@ -1,0 +1,6 @@
+﻿  debugging problem 35.cpp
+E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'debugging%20problem%2035.cpp')
+  
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\debugging problem 35\debugging problem 35.cpp(10,23): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  debugging problem 35.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\debugging problem 35\x64\Debug\debugging problem 35.exe
