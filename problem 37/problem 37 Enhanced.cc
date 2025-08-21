@@ -30,7 +30,7 @@ vector<string> split(string s, string delmi = " ")
 int main()
 {
     vector<string> PrintRes;
-    PrintRes = split(read_full_line("Enter: "), " ");
+    PrintRes = split(read_full_line("Enter: "), "#");
   
     vector<string> ::iterator vit;
 
