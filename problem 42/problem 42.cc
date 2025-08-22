@@ -33,6 +33,7 @@ string replace(string original_string, string which_you_want_to_replace, string 
     // store the words in another vector
     search_in_vector = splitWord(original_string);
 
+    //edit on vector elements 
     for (int i = 0; i < search_in_vector.size(); i++)
     {
         if(search_in_vector[i]==which_you_want_to_replace){
@@ -46,6 +47,7 @@ string replace(string original_string, string which_you_want_to_replace, string 
     {
         After_replaced += *(Final_res) + " ";
     }
+    
     return After_replaced = After_replaced.substr(0, After_replaced.length() - 1);
 }
 
