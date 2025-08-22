@@ -5,6 +5,7 @@
         "xstring": "cpp",
         "vector": "cpp",
         "string": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "cctype": "cpp"
     }
 }
