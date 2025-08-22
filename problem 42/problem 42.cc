@@ -26,18 +26,19 @@ vector<string> splitWord(string s, string delmi = " ")
     return res;
 }
 
-string replace(string original_string, string which_you_want_to_replace, string word_to_replace)
+string replace_without_MatchCase(string original_string, string which_you_want_to_replace, string word_to_replace)
 {
     string After_replaced;
     vector<string> search_in_vector;
     // store the words in another vector
     search_in_vector = splitWord(original_string);
 
-    //edit on vector elements 
+    // edit on vector elements
     for (int i = 0; i < search_in_vector.size(); i++)
     {
-        if(search_in_vector[i]==which_you_want_to_replace){
-            search_in_vector[i]= word_to_replace;
+        if (search_in_vector[i] == which_you_want_to_replace)
+        {
+            search_in_vector[i] = word_to_replace;
         }
     }
 
@@ -47,7 +48,7 @@ string replace(string original_string, string which_you_want_to_replace, string 
     {
         After_replaced += *(Final_res) + " ";
     }
-    
+
     return After_replaced = After_replaced.substr(0, After_replaced.length() - 1);
 }
 
@@ -55,5 +56,5 @@ int main()
 {
     string w = read_full_line("Enter: ");
 
-    cout << replace(w, "egy", "USA") << endl;
+    cout << replace_without_MatchCase(w, "egy", "USA") << endl;
 }
