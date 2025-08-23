@@ -29,7 +29,7 @@ vector<string> split_string (string s, string delim = " ")
     return res;
 }
 
-string join_string(vector<string> splited_words, string delim = " ")
+string join_string (vector<string> splited_words, string delim = " ")
 {
     string joined;
     for (string &str : splited_words)
