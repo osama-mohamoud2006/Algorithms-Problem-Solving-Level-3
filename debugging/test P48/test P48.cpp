@@ -68,16 +68,31 @@ stdata fillStructData(vector<string> dataSplited)
     return data;
 }
 
-void printStruct(stdata data)
-{
-   
-
-    cout << data.account_number << setw(20)<< data.pin << setw(20)<< data.name << setw(20)<< data.phone << setw(15)<<  data.account_balance;
-    
-   
-   
-    cout  << endl;
+void print_header() {
+    cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
+    cout << "| " << left
+        << setw(13) << "Account Num" << " | "
+        << setw(8) << "Pin" << " | "
+        << setw(18) << "Name" << " | "
+        << setw(13) << "Phone" << " | "
+        << setw(10) << "Balance" << " |"
+        << endl;
+    cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
 }
+
+void printStruct(const stdata& data)
+{
+    cout << "| " << left
+        << setw(13) << data.account_number << " | "
+        << setw(8) << data.pin << " | "
+        << setw(18) << data.name << " | "
+        << setw(13) << data.phone << " | "
+        << right
+        << setw(10) << data.account_balance << " |"
+        << endl;
+    cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
+}
+
 
 void test()
 {
@@ -86,7 +101,8 @@ void test()
     vector<string> afterSplited;
     // push file content to vector
     vfile_content = ReadFileContentAndPushItToVector(path);
-    cout << "\naccount number " << setw(10) << "pin" << setw(17) << "name" << setw(20) << "phone" << setw(20) << "account balance" << endl;
+    print_header();
+
     for (int i = 0; i < vfile_content.size(); i++) // access each record
     {
         afterSplited = split_string(vfile_content[i]);
