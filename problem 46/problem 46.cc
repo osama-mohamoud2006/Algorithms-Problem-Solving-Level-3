@@ -64,4 +64,5 @@ int main()
     data = convert_line_toRecord("245164#//#1234#//#osama mohamoud#//#+20 101214456#//#10000$");
 
     print(data);
+    cout << endl;
 }
