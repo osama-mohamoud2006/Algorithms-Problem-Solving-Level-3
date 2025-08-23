@@ -9,6 +9,7 @@
         "cctype": "cpp",
         "xutility": "cpp",
         "fstream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "iosfwd": "cpp"
     }
 }
