@@ -1,0 +1,7 @@
+﻿  test P47.cpp
+E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'test%20P47.cpp')
+  
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P47\test P47.cpp(21,28): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P47\test P47.cpp(24,48): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  test P47.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P47\x64\Debug\test P47.exe

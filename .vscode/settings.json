@@ -8,6 +8,7 @@
         "xlocale": "cpp",
         "cctype": "cpp",
         "xutility": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "istream": "cpp"
     }
 }

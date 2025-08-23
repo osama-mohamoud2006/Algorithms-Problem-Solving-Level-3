@@ -52,9 +52,8 @@ void start(string path, stdata data)
         load_data_to_file(path, data);
         cout << "\ntransfered data to file successfully!";
         cout << " ,Do you want to add anoter clinets: ";
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        cin  >>choice;
+       // cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+        cin >> ws >>choice;
 
     } while (choice == 'y' || choice == 'Y');
 }
