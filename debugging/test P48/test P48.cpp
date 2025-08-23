@@ -68,7 +68,8 @@ stdata fillStructData(vector<string> dataSplited)
     return data;
 }
 
-void print_header() {
+void print_header(int num ) {
+    cout << "\t" << "clients " << num << endl << endl;
     cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
     cout << "| " << left
         << setw(13) << "Account Num" << " | "
@@ -101,7 +102,7 @@ void test()
     vector<string> afterSplited;
     // push file content to vector
     vfile_content = ReadFileContentAndPushItToVector(path);
-    print_header();
+    print_header(vfile_content.size());
 
     for (int i = 0; i < vfile_content.size(); i++) // access each record
     {

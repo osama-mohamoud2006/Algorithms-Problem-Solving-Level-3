@@ -3,4 +3,5 @@ E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': con
   (compiling source file 'test%20P48.cpp')
   
 E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P48\test P48.cpp(46,25): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P48\test P48.cpp(105,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   test P48.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P48\x64\Debug\test P48.exe
