@@ -68,7 +68,6 @@ vector<stdata> Read_file(string path)
 
             data = convert_line_to_record(record);
             vdata.push_back(data);
-
         }
         read.close();
     }
@@ -78,36 +77,37 @@ vector<stdata> Read_file(string path)
 void print_header(int num)
 {
     cout << "\t" << "clients " << num << endl
-        << endl;
+         << endl;
     cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
     cout << "| " << left
-        << setw(13) << "Account Num" << " | "
-        << setw(8) << "Pin" << " | "
-        << setw(18) << "Name" << " | "
-        << setw(13) << "Phone" << " | "
-        << setw(10) << "Balance" << " |"
-        << endl;
+         << setw(13) << "Account Num" << " | "
+         << setw(8) << "Pin" << " | "
+         << setw(18) << "Name" << " | "
+         << setw(13) << "Phone" << " | "
+         << setw(10) << "Balance" << " |"
+         << endl;
     cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
 }
 
 void printStruct(vector<stdata> vdata)
 {
     print_header(vdata.size());
-    for (stdata data : vdata) {
+    for (stdata data : vdata)
+    {
         cout << "| " << left
-            << setw(13) << data.account_number << " | "
-            << setw(8) << data.pin << " | "
-            << setw(18) << data.name << " | "
-            << setw(13) << data.phone << " | "
-            << right
-            << setw(10) << data.account_balance << " |"
-            << endl;
+             << setw(13) << data.account_number << " | "
+             << setw(8) << data.pin << " | "
+             << setw(18) << data.name << " | "
+             << setw(13) << data.phone << " | "
+             << right
+             << setw(10) << data.account_balance << " |"
+             << endl;
         cout << "+---------------+----------+--------------------+---------------+------------+" << endl;
     }
 }
 
 int main()
 {
-    vector <stdata> final = Read_file(path);
+    vector<stdata> final = Read_file(path);
     printStruct(final);
 }
