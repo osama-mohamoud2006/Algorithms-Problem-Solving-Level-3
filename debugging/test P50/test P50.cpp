@@ -6,6 +6,7 @@ using namespace std;
 using namespace AllStuff;
 const string path = "convert_data_into_singleLine.text";
 const string delmi = "#//#";
+
 struct stdata
 {
     string account_number = " ";
@@ -89,7 +90,7 @@ bool is_account_number_exist(stdata& client, string account_number_to_search)
 
 void print_client_data(stdata data)
 {
-    cout << "account balance is: " << data.account_balance << endl;
+    cout << "\n\naccount balance is: " << data.account_balance << endl;
     cout << "account number is: " << data.account_number << endl;
     cout << "Name: " << data.name << endl;
     cout << "phone: " << data.phone << endl;
