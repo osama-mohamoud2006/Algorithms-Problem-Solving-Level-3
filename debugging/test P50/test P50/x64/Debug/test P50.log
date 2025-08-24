@@ -3,5 +3,4 @@ E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': con
   (compiling source file 'test%20P50.cpp')
   
 E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P50\test P50.cpp(23,28): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
-E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P50\test P50.cpp(144,1): warning C4715: 'read_choice': not all control paths return a value
   test P50.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P50\x64\Debug\test P50.exe

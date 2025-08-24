@@ -78,6 +78,7 @@ bool is_account_number_exist(stdata& client, string account_number_to_search)
     {
         if (c.account_number == account_number_to_search)
         {
+       
             client = c;
             return true;
         }
@@ -119,6 +120,7 @@ vector<string> push_all_file_data_into_vector( string path) {
         read.close();
     }
 
+    return Ndata;
 }
 
 //write new data to file 
@@ -140,13 +142,15 @@ void open_file_and_delete_record(string lineRecord )
 {
     vector<string> file;
     file = push_all_file_data_into_vector(path);
+    
+    vector<string> Ndata;
 
     for (string& vfile : file) {
-        if (vfile == lineRecord) vfile = "";
+        if (vfile != lineRecord && vfile!="") Ndata.push_back(vfile);
     }
 
-    push_new_data(file);
-    cout << "\nThe data of client's record deleted !" << endl;
+    push_new_data(Ndata);
+    cout << "\nThe client data removed !" << endl;
     screen_color(green);
 }
 
@@ -155,14 +159,14 @@ bool read_choice()
 {
     char choice = ' ';
     cin >> choice;
-    if (toupper(choice) == 'Y')
-        return true;
-    else
-        false;
+    if (toupper(choice) == 'Y') return true;
+       
+     else  return false;
 }
 
 void start()
 {
+    system("cls");
     string account_number = read_string("enter account number to check if exist or not: ");
     stdata Cdata;
 
@@ -179,14 +183,26 @@ void start()
         {
             open_file_and_delete_record(record);
         }
+        else {
+            cout << "\n nothing changed! \n";
+            screen_color(red);
+        }
 
 
 
     }
- 
+    else {
+        cout << "\n\ndump@";
+            cout << "\a";
+    }
+
 }
 
 int main()
 {
+    system("cls");
     start();
 }
+
+
+
