@@ -67,7 +67,6 @@ vector<stdata> openFIle(string path)
     return StdataINVEctor;
 }
 
-
 void print_client_data(stdata data)
 {
     cout << "account balance is: " << data.account_balance << endl;
@@ -77,22 +76,20 @@ void print_client_data(stdata data)
     cout << "pin is: " << data.pin << endl;
 }
 
-
-bool check_if_account_number_is_exist(vector<stdata> Vfile, string account_number_to_search)
+bool check_if_account_number_is_exist(stdata &Rd, string account_number_to_search)
 {
+    vector<stdata> Vfile = openFIle(path);
     for (stdata v : Vfile)
     {
         if (v.account_number == (account_number_to_search))
         {
-            print_client_data(v);
+            Rd = v;
             return true;
         }
     }
-    cout << "the account number: " << account_number_to_search << " isn't exist! " << endl;
+
     return false;
 }
-
-
 
 void start()
 {
@@ -100,12 +97,14 @@ void start()
     string acc;
     cin >> acc;
     stdata data;
-     (check_if_account_number_is_exist(openFIle(path), acc)) ;
-    
-      
-    
+    if (check_if_account_number_is_exist(data, acc)==true)
+    {
+               print_client_data(data);
+    }
+    else  cout << "the account number: " << acc << " isn't exist! " << endl;
 }
 
-int main(){
+int main()
+{
     start();
 }
