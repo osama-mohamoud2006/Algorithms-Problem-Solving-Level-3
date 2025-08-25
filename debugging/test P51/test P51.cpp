@@ -10,11 +10,20 @@ const string delmi = "#//#";
 struct stdata
 {
     string account_number = " ";
-    string pin = "";
+    string pin = " ";
     string name = " ";
     string phone = " ";
     string account_balance = " ";
 };
+
+stdata fill_data(stdata data)
+{
+    
+    data.pin = to_string(enter_number("\nenter pin: "));
+    data.phone = read_string("\nenter your phone number: ");
+    data.account_balance = to_string(enter_postive_number("\nenter account balance: "));
+    return data;
+}
 
 vector<string> SplitString(string line, string delmi = "#//#")
 {
@@ -79,7 +88,7 @@ bool is_account_number_exist(stdata& client, string account_number_to_search)
     {
         if (c.account_number == account_number_to_search)
         {
-       
+
             client = c;
             return true;
         }
@@ -106,14 +115,14 @@ string convert_struct_to_single_line(stdata data)
 
 
 // push file data to vector to make edit
-vector<string> push_all_file_data_into_vector( string path) {
+vector<string> push_all_file_data_into_vector(string path) {
 
     vector<string> Ndata;
-    fstream read; 
+    fstream read;
     read.open(path, ios::in); //read mode
 
     if (read.is_open()) {
-        string line_of_data=" ";
+        string line_of_data = " ";
         while (getline(read, line_of_data))
         {
             Ndata.push_back(line_of_data);
@@ -138,22 +147,29 @@ void push_new_data(vector<string> vdatalines) {
     }
 }
 
-// remove the record
-void open_file_and_delete_record(string lineRecord )
+// update the record
+void open_file_and_update_record(string lineRecord, string account_number)
 {
-    vector<string> file;
-    file = push_all_file_data_into_vector(path);
-    
+    vector<string> file = push_all_file_data_into_vector(path); // lines of data
     vector<string> Ndata;
 
-    for (string& vfile : file) {
-        if (vfile != lineRecord && vfile!="") Ndata.push_back(vfile);
+    for (string& vfile : file)
+    {
+        if (vfile != "")
+        {
+            stdata current = convert_line_to_record(vfile); 
+            if (current.account_number == account_number)
+                Ndata.push_back(lineRecord); 
+            else
+                Ndata.push_back(vfile);
+        }
     }
 
     push_new_data(Ndata);
-    cout << "\nThe client data removed !" << endl;
+    cout << "\nThe client data updated !" << endl;
     screen_color(green);
 }
+
 
 
 bool read_choice()
@@ -161,8 +177,8 @@ bool read_choice()
     char choice = ' ';
     cin >> choice;
     if (toupper(choice) == 'Y') return true;
-       
-     else  return false;
+
+    else  return false;
 }
 
 void start()
@@ -175,14 +191,17 @@ void start()
     {
         print_client_data(Cdata);
 
-        string record = convert_struct_to_single_line(Cdata); // convert struct into record 
+
 
         cout << endl;
-        cout << "do you sure you want to delete this client record [y,n]: ";
+        cout << "do you sure you want to update this client record [y,n]: ";
 
         if (read_choice() == true)
         {
-            open_file_and_delete_record(record);
+            Cdata = fill_data(Cdata); // new data 
+           string record =  convert_struct_to_single_line(Cdata); //convert to line 
+           open_file_and_update_record(record, account_number);
+
         }
         else {
             cout << "\n nothing changed! \n";
@@ -193,9 +212,9 @@ void start()
 
     }
     else {
-        cout << "\nthis client" <<account_number<<"isn't exist!"<<endl;
+        cout << "\nthis client" << account_number << "isn't exist!" << endl;
         screen_color(red);
-            cout << "\a";
+        cout << "\a";
     }
 
 }
@@ -206,6 +225,4 @@ int main()
     screen_color(black);
     start();
 }
-
-
 

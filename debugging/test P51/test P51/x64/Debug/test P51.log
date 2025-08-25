@@ -1,0 +1,6 @@
+﻿  test P51.cpp
+E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'test%20P51.cpp')
+  
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P51\test P51.cpp(33,28): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  test P51.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P51\x64\Debug\test P51.exe

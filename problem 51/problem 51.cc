@@ -16,6 +16,16 @@ struct stdata
     string account_balance = " ";
 };
 
+stdata fill_data()
+{
+    stdata data;
+    data.pin = enter_number("\nenter pin: ");
+    data.name = read_full_line("\nenter name: ");
+    data.phone = read_string("\nenter your phone number: ");
+    data.account_balance = enter_postive_number("\nenter account balance: ");
+    return data;
+}
+
 vector<string> SplitString(string line, string delmi = "#//#")
 {
     vector<string> data;
@@ -175,14 +185,15 @@ void start()
     {
         print_client_data(Cdata);
 
-        string record = convert_struct_to_single_line(Cdata); // convert struct into record 
+      
 
         cout << endl;
-        cout << "do you sure you want to delete this client record [y,n]: ";
+        cout << "do you sure you want to update this client record [y,n]: ";
 
         if (read_choice() == true)
         {
-            open_file_and_delete_record(record);
+           Cdata = fill_data();
+           
         }
         else {
             cout << "\n nothing changed! \n";
@@ -206,6 +217,4 @@ int main()
     screen_color(black);
     start();
 }
-
-
 

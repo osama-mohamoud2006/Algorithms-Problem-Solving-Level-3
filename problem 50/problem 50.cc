@@ -1,11 +1,13 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <limits>
 #include "E:\projects\my library\AllStuff.h"
 using namespace std;
 using namespace AllStuff;
 const string path = "convert_data_into_singleLine.text";
 const string delmi = "#//#";
+
 struct stdata
 {
     string account_number = " ";
@@ -13,6 +15,7 @@ struct stdata
     string name = " ";
     string phone = " ";
     string account_balance = " ";
+    bool mark_for_delete = false;
 };
 
 vector<string> SplitString(string line, string delmi = "#//#")
@@ -66,11 +69,12 @@ vector<stdata> load_file(string path)
         }
         read.close();
     }
-    else cout << "file isn't exist !!!" << endl;
+    else
+        cout << "file isn't exist !!!" << endl;
     return BlockOfDATA;
 }
 
-bool is_account_number_exist(stdata& client, string account_number_to_search)
+bool is_account_number_exist(stdata &client, string account_number_to_search)
 {
     vector<stdata> dataFromfile = load_file(path);
 
@@ -78,7 +82,7 @@ bool is_account_number_exist(stdata& client, string account_number_to_search)
     {
         if (c.account_number == account_number_to_search)
         {
-       
+
             client = c;
             return true;
         }
@@ -89,7 +93,7 @@ bool is_account_number_exist(stdata& client, string account_number_to_search)
 
 void print_client_data(stdata data)
 {
-    cout << "account balance is: " << data.account_balance << endl;
+    cout << "\n\naccount balance is: " << data.account_balance << endl;
     cout << "account number is: " << data.account_number << endl;
     cout << "Name: " << data.name << endl;
     cout << "phone: " << data.phone << endl;
@@ -102,17 +106,17 @@ string convert_struct_to_single_line(stdata data)
     return (data.account_number + delmi + (data.pin) + delmi + data.name + delmi + data.phone + delmi + (data.account_balance));
 }
 
-
-
 // push file data to vector to make edit
-vector<string> push_all_file_data_into_vector( string path) {
+vector<string> push_all_file_data_into_vector(string path)
+{
 
     vector<string> Ndata;
-    fstream read; 
-    read.open(path, ios::in); //read mode
+    fstream read;
+    read.open(path, ios::in); // read mode
 
-    if (read.is_open()) {
-        string line_of_data=" ";
+    if (read.is_open())
+    {
+        string line_of_data = " ";
         while (getline(read, line_of_data))
         {
             Ndata.push_back(line_of_data);
@@ -123,14 +127,17 @@ vector<string> push_all_file_data_into_vector( string path) {
     return Ndata;
 }
 
-//write new data to file 
-void push_new_data(vector<string> vdatalines) {
+// write new data to file
+void push_new_data(vector<string> vdatalines)
+{
     fstream write;
 
     write.open(path, ios::out);
-    if (write.is_open()) {
+    if (write.is_open())
+    {
 
-        for (string& Nline : vdatalines) {
+        for (string &Nline : vdatalines)
+        {
             write << Nline << endl;
         }
         write.close();
@@ -138,15 +145,17 @@ void push_new_data(vector<string> vdatalines) {
 }
 
 // remove the record
-void open_file_and_delete_record(string lineRecord )
+void open_file_and_delete_record(string lineRecord)
 {
     vector<string> file;
     file = push_all_file_data_into_vector(path);
-    
+
     vector<string> Ndata;
 
-    for (string& vfile : file) {
-        if (vfile != lineRecord && vfile!="") Ndata.push_back(vfile);
+    for (string &vfile : file)
+    {
+        if (vfile != lineRecord && vfile != "")
+            Ndata.push_back(vfile);
     }
 
     push_new_data(Ndata);
@@ -154,19 +163,60 @@ void open_file_and_delete_record(string lineRecord )
     screen_color(green);
 }
 
+bool mark_for_delete(string account_number_to_search, vector<stdata> &vclient)
+{
+  
+
+    for (stdata &c : vclient)
+    {
+        if (c.account_number == account_number_to_search)
+        {
+
+            c.mark_for_delete = true;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void save_clients_data_after_deleted_record(string path,vector<stdata> &vclient)
+{
+    fstream write;
+    write.open(path, ios::out); // write mode
+    if (write.is_open())
+    {
+
+        for (stdata &d : vclient)
+        {
+            if (d.mark_for_delete == false)
+            {
+                write << convert_struct_to_single_line(d) << endl;
+            }
+        }
+
+        write.close();
+    }
+    else
+        cout << "file isn't exist !!!" << endl;
+}
 
 bool read_choice()
 {
     char choice = ' ';
     cin >> choice;
-    if (toupper(choice) == 'Y') return true;
-       
-     else  return false;
+    if (toupper(choice) == 'Y')
+        return true;
+
+    else
+        return false;
 }
 
 void start()
 {
     system("cls");
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     string account_number = read_string("enter account number to check if exist or not: ");
     stdata Cdata;
 
@@ -174,28 +224,33 @@ void start()
     {
         print_client_data(Cdata);
 
-        string record = convert_struct_to_single_line(Cdata); // convert struct into record 
+        // string record = convert_struct_to_single_line(Cdata); // convert struct into record
 
         cout << endl;
         cout << "do you sure you want to delete this client record [y,n]: ";
 
         if (read_choice() == true)
         {
-            open_file_and_delete_record(record);
+            vector<stdata> dataFromfile = load_file(path);
+            if (mark_for_delete(account_number, dataFromfile) == true)
+            {
+               save_clients_data_after_deleted_record(path, dataFromfile);
+               dataFromfile= load_file(path);
+            }
+
+            //  Cdata = load_file(path);
         }
-        else {
+        else
+        {
             cout << "\n nothing changed! \n";
             screen_color(red);
         }
-
-
-
     }
-    else {
+    else
+    {
         cout << "\n\ndump@";
-            cout << "\a";
+        cout << "\a";
     }
-
 }
 
 int main()
@@ -203,6 +258,3 @@ int main()
     system("cls");
     start();
 }
-
-
-

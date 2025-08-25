@@ -1,0 +1,11 @@
+﻿  test P50.cpp
+E:\projects\my library\logic_stuff.h(117,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'test%20P50.cpp')
+  
+E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P50\test P50.cpp(24,28): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  Generating code
+  2 of 369 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  test P50.vcxproj -> E:\projects\c++ course\07 - Algorithms & Problem Solving Level 3\debugging\test P50\x64\Release\test P50.exe
