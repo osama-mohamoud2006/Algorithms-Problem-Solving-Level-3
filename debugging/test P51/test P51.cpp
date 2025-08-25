@@ -150,18 +150,20 @@ void push_new_data(vector<string> vdatalines) {
 // update the record
 void open_file_and_update_record(string lineRecord, string account_number)
 {
+
     vector<string> file = push_all_file_data_into_vector(path); // lines of data
     vector<string> Ndata;
 
+    //edit data 
     for (string& vfile : file)
     {
+       // check account number == st.account number
         if (vfile != "")
         {
-            stdata current = convert_line_to_record(vfile); 
-            if (current.account_number == account_number)
-                Ndata.push_back(lineRecord); 
-            else
-                Ndata.push_back(vfile);
+            stdata current = convert_line_to_record(vfile); // convert every line to record
+            //check if the account number by user == st.account number
+            if (current.account_number == account_number) Ndata.push_back(lineRecord);
+            else Ndata.push_back(vfile);
         }
     }
 
